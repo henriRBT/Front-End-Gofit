@@ -39,11 +39,11 @@ import axios from "axios";
 import { onMounted,  ref } from "vue";
 export default {
     setup() {
-        //reactive state
+       
         let booking_kelas = ref([]);
-        //state validation
+        
         const validation = ref([]);
-        //vue router
+       
        
         //mounted
         onMounted(() => {
@@ -84,14 +84,15 @@ export default {
                                     <strong>GoFit</strong>
                                     <p>Jl. CentralPark No. 10 Yogyakarta<p>
                                     <br>
-                                    <strong>STRUK PRESENSI GYM</strong>
+                                    <strong>STRUK PRESENSI KELAS PAKET</strong>
                                     <p>No Struk         : ${response.data.data[0].no_struk_booking_kelas}<p>
                                     <p>Tanggal          : ${formattedDate} / ${formattedTime} <p>
-                                    <p><b>Member        :</b> ${response.data.data[0].id_member} / ${response.data.data[0].nama_member}<br> <p>
+                                    <br>
+                                    <p><b>Member</b>    : ${response.data.data[0].id_member} ${response.data.data[0].nama_member}<br> <p>
                                     <p>Kelas            : ${response.data.data[0].nama_kelas}<p>
                                     <p>Instruktur       : ${response.data.data[0].nama_instruktur}<p>
-                                    <p>Sisa Deposit     : ${response.data.data[0].total_deposit_kelas}<p>
-                                    <p>Tanggal Berlaku  : ${response.data.data[0].tanggal_berlaku}<p>
+                                    <p>Sisa Deposit     : ${response.data.data[0].total_deposit_kelas}x<p>
+                                    <p>Berlaku Sampai  : ${response.data.data[0].tanggal_berlaku}<p>
                             </div>
                             <style>
                             .element-to-convert {
@@ -102,14 +103,14 @@ export default {
                                 padding: 10px;
                                 background: #FFFFFF;
                                 border: 1px solid #000000;
-                                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                                border-radius: 9px;
+
                             }
-                            
+
                             </style>`
                         );response.data.data;
                         console.log(response.data.data)
                         window.print();
+                        window.location.reload();
                     })
                     .catch((error) => {
                         console.log(error.response.data);
@@ -123,14 +124,15 @@ export default {
                                     <strong>GoFit</strong>
                                     <p>Jl. CentralPark No. 10 Yogyakarta<p>
                                     <br>
-                                    <strong>STRUK PRESENSI GYM</strong>
+                                    <strong>STRUK PRESENSI KELAS</strong>
                                     <p>No Struk         : ${response.data.data[0].no_struk_booking_kelas}<p>
-                                    <p>Tanggal          : ${formattedDate} / ${formattedTime} <p>
-                                    <p><b>Member        :</b> ${response.data.data[0].id_member} / ${response.data.data[0].nama_member}<br> <p>
+                                    <p>Tanggal          : ${formattedDate} ${formattedTime} <p>
+                                    <br>
+                                    <p><b>Member</b>    : ${response.data.data[0].id_member} / ${response.data.data[0].nama_member}<br> <p>
                                     <p>Kelas            : ${response.data.data[0].nama_kelas}<p>
                                     <p>Instruktur       : ${response.data.data[0].nama_instruktur}<p>
-                                    <p>Tarif            : Rp. 150.000<p>
-                                    <p>Sisa Deposit     : ${response.data.data[0].total_jumlah_deposit}<p>
+                                    <p>Tarif            : Rp.${response.data.data[0].harga_kelas}<p>
+                                    <p>Sisa Deposit     : Rp.${response.data.data[0].total_deposit}<p>
                             </div>
                             <style>
                             .element-to-convert {
@@ -141,23 +143,20 @@ export default {
                                 padding: 10px;
                                 background: #FFFFFF;
                                 border: 1px solid #000000;
-                                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                                border-radius: 9px;
+
                             }
                             
                             </style>`
                         );response.data.data;
                         console.log(response.data.data)
                         window.print();
+                        window.location.reload();
                     })
                     .catch((error) => {
                         console.log(error.response.data);
                 });
             }
            
-
-            // reset CSS untuk elemen yang ingin dicetak
-            // elem.style.padding = null;
         },
     },
 
