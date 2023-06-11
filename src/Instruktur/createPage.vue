@@ -94,7 +94,7 @@ export default {
         let tanggal_lahir = instruktur. tanggal_lahir
         let username = instruktur.username
       
-        axios.post('http://127.0.0.1:8000/api/instruktur', {
+        axios.post('https://api.henri.krisnarata13.my.id/api/instruktur', {
             nama_instruktur: nama_instruktur,
             alamat_instruktur: alamat_instruktur,
             no_telepon: no_telepon,

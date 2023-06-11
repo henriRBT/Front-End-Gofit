@@ -26,7 +26,7 @@
               <li class="nav-item">
                 <router-link :to="{ name: 'depositKelas.index' }" class="nav-link">Deposit Kelas</router-link>
               </li>
-              
+
               <li class="nav-item">
                 <router-link :to="{ name: 'presensi.index' }" class="nav-link"> Presensi Kelas</router-link>
               </li>
@@ -76,7 +76,7 @@ export default {
       //logout
       axios.defaults.headers.common.Authorization = `Bearer ${token}`;
       axios
-        .get("http://127.0.0.1:8000/api/logout")
+        .get("https://api.henri.krisnarata13.my.id/api/logout")
         .then((response) => {
           if (response.data.success) {
             //remove localStorage

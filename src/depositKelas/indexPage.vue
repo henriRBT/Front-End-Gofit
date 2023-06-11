@@ -53,7 +53,7 @@
       onMounted(() => {
         //get API from Laravel Backend
         axios
-          .get("http://127.0.0.1:8000/api/transaksi")
+          .get("https://api.henri.krisnarata13.my.id/api/transaksi")
           .then((response) => {
             //assign state posts with response data
             transaksi_deposit_kelas.value = response.data.data;
@@ -72,7 +72,7 @@
   
     methods:{
           printStruk(no_struk_kelas) {
-              axios.get(`http://127.0.0.1:8000/api/cetakKelas/${no_struk_kelas}`)
+              axios.get(`https://api.henri.krisnarata13.my.id/api/cetakKelas/${no_struk_kelas}`)
                       .then((response) => {
                             // Mendapatkan tanggal hari ini
                               const today = new Date(); 

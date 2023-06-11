@@ -74,7 +74,7 @@ export default {
     
     onMounted(() => {
      
-            axios.get('http://127.0.0.1:8000/api/member')
+            axios.get('https://api.henri.krisnarata13.my.id/api/member')
             .then(response => {
                 member.value = response.data.data
                 console.log(member.value);
@@ -82,7 +82,7 @@ export default {
                 console.log(error.response.data)
             })
 
-            axios.get('http://127.0.0.1:8000/api/pegawai')
+            axios.get('https://api.henri.krisnarata13.my.id/api/pegawai')
             .then(response => {
                 pegawai.value = response.data.data
             }).catch(error => {
@@ -99,7 +99,7 @@ export default {
         let id_pegawai = aktivasi.id_pegawai
         console.log(id_member)
         console.log(id_pegawai)
-        axios.post('http://127.0.0.1:8000/api/aktivasi', {
+        axios.post('https://api.henri.krisnarata13.my.id/api/aktivasi', {
             // id_pegawai:id_pegawai,
             id_member: id_member,
             tanggal_transaksi: tanggal_transaksi,

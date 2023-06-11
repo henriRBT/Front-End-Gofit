@@ -4,7 +4,16 @@
             <div class="col-md-12">
                 <div class="card border-0 rounded shadow">
                     <div class="card-body">
-                        <h4>Update Instruktur</h4>
+                        <h4>
+                            <router-link :to="{ name: 'instruktur.index' }"  style="margin-right: 20px;"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" 
+                                class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
+                                </svg> 
+                            </router-link>
+                            
+                            Update Instruktur
+                        </h4>
                         <hr>
                         <form @submit.prevent="update">
                             <div class="form-group mb-3">
@@ -47,16 +56,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group mb-3">
-                                <label for="content" class="form-label">Username</label>
-                                <input class="form-control" v-model="instruktur.username" placeholder="Masukkan Username">
-                            
-                                <!-- validation -->
-                                <div v-if="validation.username" class="mt-2 alert alert-danger">
-                                    {{ validation.username[0] }}
-                                </div>
-                            </div>
-
                             <button type="submit" class="btn btn-primary">SIMPAN</button>
                         </form>
                     </div>
@@ -79,8 +78,8 @@ export default {
             nama_instruktur: '',
             alamat_instruktur: '',
             no_telepon: '',
-            tanggal_lahir:'',
-            username:'',
+            tanggal_lahir:''
+           
         })
     //state validation
     const validation = ref([])
@@ -89,14 +88,13 @@ export default {
     const route = useRoute();
 
     onMounted(() => {
-    axios.get(`http://127.0.0.1:8000/api/instruktur/${route.params.id}`) 
+    axios.get(`https://api.henri.krisnarata13.my.id/api/instruktur/${route.params.id}`) 
         .then(response => {
             instruktur.id = response.data.data.id,
             instruktur.nama_instruktur = response.data.data.nama_instruktur,
             instruktur.alamat_instruktur= response.data.data.alamat_instruktur,
             instruktur.no_telepon = response.data.data.no_telepon,
-            instruktur.tanggal_lahir = response.data.data.tanggal_lahir,
-            instruktur.username = response.data.data.username
+            instruktur.tanggal_lahir = response.data.data.tanggal_lahir
        
         }).catch(error => {
             //assign state validation with error
@@ -109,15 +107,12 @@ export default {
         let alamat_instruktur = instruktur.alamat_instruktur
         let no_telepon = instruktur.no_telepon
         let tanggal_lahir = instruktur. tanggal_lahir
-        let username = instruktur.username
-       
 
-        axios.put(`http://127.0.0.1:8000/api/instruktur/${route.params.id}`, {
+        axios.put(`https://api.henri.krisnarata13.my.id/api/instruktur/${route.params.id}`, {
             nama_instruktur: nama_instruktur,
             alamat_instruktur: alamat_instruktur,
             no_telepon: no_telepon,
-            tanggal_lahir: tanggal_lahir,
-            username: username,
+            tanggal_lahir: tanggal_lahir
          
         })
             .then(() => {

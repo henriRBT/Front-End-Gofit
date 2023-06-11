@@ -67,14 +67,14 @@ export default {
 
     onMounted(() => {
         
-            axios.get('http://127.0.0.1:8000/api/harian')
+            axios.get('https://api.henri.krisnarata13.my.id/api/harian')
             .then(response => {
                 jadwal_harian.value = response.data.data
             }).catch(error => {
                 console.log(error.response.data)
             })
 
-            axios.get(`http://127.0.0.1:8000/api/izin/${route.params.id}`) 
+            axios.get(`https://api.henri.krisnarata13.my.id/api/izin/${route.params.id}`) 
                 .then(response => {
                     izin.id_jadwal_harian= response.data.data.id_jadwal_harian
                 }).catch(error => {
@@ -88,7 +88,7 @@ export default {
         let id_jadwal_harian = izin.id_jadwal_harian
         let status = izin.status 
         
-        axios.put(`http://127.0.0.1:8000/api/izin/${route.params.id}`, {
+        axios.put(`https://api.henri.krisnarata13.my.id/api/izin/${route.params.id}`, {
             id_jadwal_harian:id_jadwal_harian,
             status: status 
             

@@ -11,7 +11,7 @@
                                 <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
                                 </svg> 
                             </router-link>
-                            UPDATE MEMBER</h4>
+                            Update Member</h4>
                         <hr>
 
                         <form @submit.prevent="update">
@@ -96,7 +96,7 @@ export default {
     const route = useRoute();
     
     onMounted(() => {
-    axios.get(`http://127.0.0.1:8000/api/member/${route.params.id}`) 
+    axios.get(`https://api.henri.krisnarata13.my.id/api/member/${route.params.id}`) 
         .then(response => {
             member.nama_member= response.data.data.nama_member,
             member.no_telepon_member= response.data.data.no_telepon_member,
@@ -116,7 +116,7 @@ export default {
         let tanggal_lahir_member = member.tanggal_lahir_member
         let email_member = member.email_member
 
-        axios.put(`http://127.0.0.1:8000/api/member/${route.params.id}`, {
+        axios.put(`https://api.henri.krisnarata13.my.id/api/member/${route.params.id}`, {
             nama_member: nama_member,
             no_telepon_member: no_telepon_member,
             alamat_member: alamat_member,

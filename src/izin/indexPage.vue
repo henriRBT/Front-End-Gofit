@@ -48,7 +48,7 @@ export default {
         const validation = ref([]);
         onMounted(() => {
             
-            axios.get("http://127.0.0.1:8000/api/izin")
+            axios.get("https://api.henri.krisnarata13.my.id/api/izin")
                 .then((response) => {
                     //assign state posts with response data
                     izin.value = response.data.data;

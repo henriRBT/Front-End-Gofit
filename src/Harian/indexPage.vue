@@ -60,14 +60,14 @@ export default {
     const toaster = createToaster({});
 
     const getResults = async (page = 5) => {
-      const response = await fetch(`http://127.0.0.1:8000/api/harian?page=${page}`);
+      const response = await fetch(`https://api.henri.krisnarata13.my.id/api/harian?page=${page}`);
        jadwal_harian.value = response.data.data;
     }
    
 
     onMounted(() => {
       axios
-        .get("http://127.0.0.1:8000/api/harian")
+        .get("https://api.henri.krisnarata13.my.id/api/harian")
         .then((response) => {
           jadwal_harian.value = response.data.data;
         })
@@ -78,7 +78,7 @@ export default {
 
     function generateJadwal() {
       axios
-        .post(`http://127.0.0.1:8000/api/generateJadwal`)
+        .post(`https://api.henri.krisnarata13.my.id/api/generateJadwal`)
         .then((response) => {
           console.log(response.data.message);
           toaster.success(`Data Sudah digenerate`);
@@ -88,9 +88,10 @@ export default {
           toaster.error(`Data Error`);
         });
       axios
-        .get("http://127.0.0.1:8000/api/harian")
+        .get("https://api.henri.krisnarata13.my.id/api/harian")
         .then((response) => {
           jadwal_harian.value = response.data.data;
+          window.location.reload();
         })
         .catch((error) => {
           console.log(error.response.data);

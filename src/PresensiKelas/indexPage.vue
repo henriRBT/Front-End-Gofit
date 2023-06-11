@@ -13,6 +13,7 @@
                                     <th scope="col">Nama Member</th>
                                     <th scope="col">Nama Kelas </th>
                                     <th scope="col">Waktu Booking</th>
+                                    <th scope="col">Tipe</th>
                                     <th scope="col">Menu</th>
                                 </tr>
                             </thead>
@@ -21,7 +22,8 @@
                                     <td>{{ booking_kelas.no_struk_booking_kelas }}</td>
                                     <td>{{ booking_kelas.nama_member }}</td>
                                     <td>{{ booking_kelas.nama_kelas}}</td>
-                                    <td>{{ booking_kelas.waktu_booking}}</td>
+                                    <td>{{ booking_kelas.waktu_booking}}</td> 
+                                    <td>{{ booking_kelas.tipe}}</td>
                                     <td class="text-center"> 
                                         <button @click.prevent="printStruk(booking_kelas.no_struk_booking_kelas, booking_kelas.tipe)" style="margin-left: 10px;" class="btn btn-sm btn-danger ml1">Cetak</button> 
                                     </td>
@@ -48,7 +50,7 @@ export default {
         //mounted
         onMounted(() => {
             //get API from Laravel Backend
-            axios.get("http://127.0.0.1:8000/api/bookingKelas")
+            axios.get("https://api.henri.krisnarata13.my.id/api/bookingKelas")
                 .then((response) => {
                     //assign state posts with response data
                     booking_kelas.value = response.data.data;
@@ -76,7 +78,7 @@ export default {
             const formattedTime = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`; 
 
             if(tipe == "Paket"){
-                axios.get(`http://127.0.0.1:8000/api/cetakpaket/${no_struk_booking_kelas}`)
+                axios.get(`https://api.henri.krisnarata13.my.id/api/cetakpaket/${no_struk_booking_kelas}`)
                     .then((response) => {
                         //assign state posts with response data
                         document.write( 
@@ -116,7 +118,7 @@ export default {
                         console.log(error.response.data);
                     });
             }else if(tipe == "Reguler"){
-                axios.get(`http://127.0.0.1:8000/api/cetakreguler/${no_struk_booking_kelas}`)
+                axios.get(`https://api.henri.krisnarata13.my.id/api/cetakreguler/${no_struk_booking_kelas}`)
                     .then((response) => {
                         //assign state posts with response data
                         document.write( 

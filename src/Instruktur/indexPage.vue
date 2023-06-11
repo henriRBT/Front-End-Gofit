@@ -62,7 +62,7 @@ export default {
         //mounted
         onMounted(() => {
             //get API from Laravel Backend
-            axios.get("http://127.0.0.1:8000/api/instruktur")
+            axios.get("https://api.henri.krisnarata13.my.id/api/instruktur")
                 .then((response) => {
                     //assign state posts with response data
                     instruktur.value = response.data.data;
@@ -82,7 +82,7 @@ export default {
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        axios.delete(`http://127.0.0.1:8000/api/instruktur/${id}`)
+                        axios.delete(`https://api.henri.krisnarata13.my.id/api/instruktur/${id}`)
                         .then(() => {
                         //assign state posts with response data
                             instruktur.value.splice(this.instruktur.findIndex(index=>index.id == id), 1);

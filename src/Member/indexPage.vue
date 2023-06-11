@@ -56,7 +56,7 @@ export default {
         //mounted
         onMounted(() => {
            
-            axios.get("http://127.0.0.1:8000/api/member")
+            axios.get("https://api.henri.krisnarata13.my.id/api/member")
                 .then((response) => {
                     member.value = response.data.data;
                 })
@@ -75,7 +75,7 @@ export default {
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        axios.get(`http://127.0.0.1:8000/api/hapus/${id}`)
+                        axios.get(`https://api.henri.krisnarata13.my.id/api/hapus/${id}`)
                         .then(() => {
                             window.location.reload();
                             toaster.success(`Data Berhasil di reset`);

@@ -102,7 +102,7 @@ export default {
         let email_member = member.email_member
       
       
-        axios.post('http://127.0.0.1:8000/api/member', {
+        axios.post('https://api.henri.krisnarata13.my.id/api/member', {
             nama_member: nama_member,
             no_telepon_member: no_telepon_member,
             alamat_member: alamat_member,

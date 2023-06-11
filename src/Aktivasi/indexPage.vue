@@ -48,7 +48,7 @@ export default {
         //mounted
         onMounted(() => {
             //get API from Laravel Backend
-            axios.get("http://127.0.0.1:8000/api/aktivasi")
+            axios.get("https://api.henri.krisnarata13.my.id/api/aktivasi")
                 .then((response) => {
                     //assign state posts with response data
                     aktivasi.value = response.data.data;
@@ -78,7 +78,7 @@ export default {
             // Format jam sesuai dengan format yang diinginkan
             const formattedTime = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`; 
 
-            axios.get(`http://127.0.0.1:8000/api/cetakAktivasi/${no_struk_aktivasi}`)
+            axios.get(`https://api.henri.krisnarata13.my.id/api/cetakAktivasi/${no_struk_aktivasi}`)
                     .then((response) => {
                         //assign state posts with response data
                         document.write( 

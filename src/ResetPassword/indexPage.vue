@@ -54,7 +54,7 @@ export default {
         const toaster = createToaster({});
         //mounted
         onMounted(() => {
-            axios.get("http://127.0.0.1:8000/api/member")
+            axios.get("https://api.henri.krisnarata13.my.id/api/member")
                 .then((response) => {
                     //assign state posts with response data
                     member.value = response.data.data;
@@ -65,7 +65,7 @@ export default {
             });
         
         function reset(id){
-            axios.get(`http://127.0.0.1:8000/api/reset/${id}`)
+            axios.get(`https://api.henri.krisnarata13.my.id/api/reset/${id}`)
                 .then(() => {
                     toaster.success(`Reset Password Berhasil`);
                 })
@@ -81,7 +81,7 @@ export default {
     
     methods:{
         printStruk(id) {
-            axios.get(`http://127.0.0.1:8000/api/cetakMember/${id}`)
+            axios.get(`https://api.henri.krisnarata13.my.id/api/cetakMember/${id}`)
                     .then((response) => {
                         //assign state posts with response data
                         document.write( 

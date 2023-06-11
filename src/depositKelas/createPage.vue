@@ -91,28 +91,28 @@ export default {
     
     onMounted(() => {
      
-            axios.get('http://127.0.0.1:8000/api/member')
+            axios.get('https://api.henri.krisnarata13.my.id/api/member')
             .then(response => {
                 member.value = response.data.data
             }).catch(error => {
                 console.log(error.response.data)
             })
 
-            axios.get('http://127.0.0.1:8000/api/pegawai')
+            axios.get('https://api.henri.krisnarata13.my.id/api/pegawai')
             .then(response => {
                 pegawai.value = response.data.data
             }).catch(error => {
                 console.log(error.response.data)
             })
 
-            axios.get('http://127.0.0.1:8000/api/kelas')
+            axios.get('https://api.henri.krisnarata13.my.id/api/kelas')
             .then(response => {
                 kelas.value = response.data.data
             }).catch(error => {
                 console.log(error.response.data)
             })
 
-            axios.get('http://127.0.0.1:8000/api/promo')
+            axios.get('https://api.henri.krisnarata13.my.id/api/promo')
             .then(response => {
                 promo.value = response.data.data
             }).catch(error => {
@@ -127,7 +127,7 @@ export default {
         let id_kelas = deposit_kelas.id_kelas
         let id_promo = deposit_kelas.id_promo
 
-        axios.post('http://127.0.0.1:8000/api/transaksi', {
+        axios.post('https://api.henri.krisnarata13.my.id/api/transaksi', {
             id_member: id_member,
             id_pegawai:id_pegawai,
             id_kelas: id_kelas,

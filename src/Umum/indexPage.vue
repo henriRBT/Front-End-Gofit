@@ -83,7 +83,7 @@ export default {
 
         //mounted
         onMounted(() => {
-            axios.get("http://127.0.0.1:8000/api/jadwal")
+            axios.get("https://api.henri.krisnarata13.my.id/api/jadwal")
                 .then((response) => {
                     //assign state posts with response data
                    
@@ -108,7 +108,7 @@ export default {
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`http://127.0.0.1:8000/api/jadwal/${id}`)
+                    axios.delete(`https://api.henri.krisnarata13.my.id/api/jadwal/${id}`)
                     .then(response => {
                         //assign state posts with response data
                         console.log(response.data.message);

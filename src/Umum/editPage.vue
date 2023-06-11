@@ -104,7 +104,7 @@ export default {
     const router = useRouter();
     const route = useRoute();
     onMounted(() => {
-            axios.get('http://127.0.0.1:8000/api/instruktur')
+            axios.get('https://api.henri.krisnarata13.my.id/api/instruktur')
             .then(response => {
                 console.log('instruktur',response);
                     instruktur.value = response.data.data
@@ -112,7 +112,7 @@ export default {
                 console.log(error.response.data)
             })
 
-            axios.get('http://127.0.0.1:8000/api/kelas')
+            axios.get('https://api.henri.krisnarata13.my.id/api/kelas')
             .then(response => {
                 console.log('kelas',response);
                     kelas.value = response.data.data
@@ -120,7 +120,7 @@ export default {
                 console.log(error.response.data)
             })
 
-            axios.get(`http://127.0.0.1:8000/api/jadwal/${route.params.id}`) 
+            axios.get(`https://api.henri.krisnarata13.my.id/api/jadwal/${route.params.id}`) 
                 .then(response => {
                     jadwal_umum.hari= response.data.data.hari,
                     jadwal_umum.sesi_kelas= response.data.data.sesi_kelas,
@@ -138,11 +138,11 @@ export default {
         let id_kelas = jadwal_umum.id_kelas
         let id_instruktur = jadwal_umum.id_instruktur
         
-        axios.put(`http://127.0.0.1:8000/api/jadwal/${route.params.id}`, {
+        axios.put(`https://api.henri.krisnarata13.my.id/api/jadwal/${route.params.id}`, {
             hari: hari,
             sesi_kelas: sesi_kelas,
             id_kelas: id_kelas,
-            id_instruktur:id_instruktur
+            id_instruktur:id_instruktur,
             
         }).then(() => {
         //redirect ke post index
