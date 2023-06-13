@@ -24,13 +24,21 @@
               </li>
 
               <li class="nav-item">
+                <router-link :to="{ name: 'depositUang.index' }" class="nav-link">Deposit Uang</router-link>
+              </li>
+
+              <li class="nav-item">
                 <router-link :to="{ name: 'depositKelas.index' }" class="nav-link">Deposit Kelas</router-link>
               </li>
 
               <li class="nav-item">
                 <router-link :to="{ name: 'presensi.index' }" class="nav-link"> Presensi Kelas</router-link>
               </li>
-             
+
+              <li class="nav-item">
+                <router-link :to="{ name: 'gym.index' }" class="nav-link"> Presensi Gym</router-link>
+              </li>
+              
               <li @click.prevent="logout" class="nav-item nav-link">LOGOUT</li>
             </ul>
           </div>
@@ -76,7 +84,7 @@ export default {
       //logout
       axios.defaults.headers.common.Authorization = `Bearer ${token}`;
       axios
-        .get("https://api.henri.krisnarata13.my.id/api/logout")
+        .get("http://127.0.0.1:8000/api/logout")
         .then((response) => {
           if (response.data.success) {
             //remove localStorage

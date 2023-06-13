@@ -128,6 +128,23 @@ const routes = [
             name: "reset.index",
             component: () => import("@/ResetPassword/indexPage.vue"),
           },
+
+          {
+            path: "/UangIndex",
+            name: "depositUang.index",
+            component: () => import("@/depositUang/indexPage.vue"),
+          },
+          {
+            path: "/UangCreate",
+            name: "depositUang.create",
+            component: () => import("@/depositUang/createPage.vue"),
+          },
+
+          {
+            path: "/PresensiGymIndex",
+            name: "gym.index",
+            component: () => import("@/Gym/indexPage.vue"),
+          },
         ],
       },
 ];

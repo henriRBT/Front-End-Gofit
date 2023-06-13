@@ -11,7 +11,8 @@
                                     <th scope="col">Tanggal Kelas </th>
                                     <th scope="col">Keterangan</th>
                                     <th scope="col">Tanggal Pembuatan Izin</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Status</th> 
+                                    <th scope="col">Menu</th>
                                 </tr>
                             </thead>
                             <tbody>

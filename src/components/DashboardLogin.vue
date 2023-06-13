@@ -93,7 +93,7 @@
   
         //send server with axios
         axios
-          .post("https://api.henri.krisnarata13.my.id/api/login", {
+          .post("http://127.0.0.1:8000/api/login", {
             username,
             password,
           })
